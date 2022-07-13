@@ -1,0 +1,71 @@
+.game{
+    height: 300px;
+    width: 600px;
+    border-bottom: 2px solid #000;
+    margin: auto;
+}
+
+#player{
+    width: 50px;
+    height: 50px;
+    background: rgb(0, 255, 150);
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 245px;
+}
+#player-in{
+    width: 24px;
+    height: 24px;
+    background: rgb(255, 150, 0);
+    border: 1px solid black;
+}
+
+#enemy {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 30px solid red;
+    position: relative;
+    top: 215px;
+    left: 570px;
+    animation: enemyMovement 1.3s infinite linear;
+}
+@keyframes enemyMovement {
+    0% {
+        left: 570px;
+    }
+    100% {
+        left: -20px;
+    }
+}
+
+.jump{
+    animation: jump 0.5s linear;
+}
+@keyframes jump {
+    0% {
+        top: 245px;
+    }
+    25% {
+        top: 190px;
+    }
+    45% {
+        top: 150px;
+    }
+    50% {
+        top: 150px;
+    }
+    55% {
+        top: 150px;
+    }
+    75% {
+        top: 190px;
+    }
+    100% {
+        top: 245px;
+    }
+}
