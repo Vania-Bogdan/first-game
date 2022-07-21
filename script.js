@@ -1,8 +1,15 @@
 const player = document.getElementById("player")
 const enemy = document.getElementById("enemy")
-// let spikeInterval = Math.random() * (10 - 3) + 1
+let spikeInterval = Math.random() * (10 - 3) + 1
 
 // enemy.style.animationDelay = Math.random() * (10 - 3) + 1 + 's'
+// do {
+//     enemy.classList.add("enemy-animation")
+// } while (enemy.classList !== "enemy-animation");
+
+//нужно попробовать сделать разницу между шипами используя setInterval!!!
+//сделать чтобы когда едет был дым а когда в прыжке постепенно поворачивался на 90 градусов!!!
+//сделать домашнюю страницу!!!
 
 document.addEventListener('keydown', function () {
     jump()
@@ -22,7 +29,22 @@ let isAlive = setInterval(() => {
     let enemyLeft = parseInt(window.getComputedStyle(enemy).getPropertyValue("left"))
 
     if (enemyLeft < 50 && enemyLeft > 0 && playerTop >= 210) {
-        alert("GAME OVER")
-        enemy.style.left = '570px'
+        window.location.pathname = './game-over.html'
     }
-}, 10)
+}, 10);
+
+
+//theme chenger
+// document.querySelector('.themes').addEventListener('change', (event) => {
+//     if (event.target.nodeName === 'INPUT') {
+//         console.log("lalala")
+//         document.documentElement.classList.remove('dark', 'light')
+//         document.documentElement.classList.add(event.target.value)
+//     }
+// })
+document.querySelector('.theme-input').addEventListener('change', (event) => {
+    if (event.target.nodeName === 'INPUT') {
+        document.documentElement.classList.toggle('dark')
+        console.log("theme changed")
+    }
+})
