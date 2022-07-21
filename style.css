@@ -1,7 +1,8 @@
 .game{
     height: 300px;
     width: 600px;
-    border-bottom: 2px solid #000;
+    border-radius: 10px;
+    border-bottom: 10px solid var(--color-ground);
     margin: auto;
 }
 
@@ -32,14 +33,46 @@
     position: relative;
     top: 215px;
     left: 570px;
-    animation: enemyMovement 1.3s infinite linear;
+    animation: enemyMov 1.2s infinite linear, enemyJumping 1s infinite linear;
 }
-@keyframes enemyMovement {
+/* .enemy-animation{
+    animation: enemyMovement 1.3s linear;
+} */
+@keyframes enemyMov {
     0% {
-        left: 570px;
+        right: 0px;
     }
     100% {
         left: -20px;
+    }
+}
+@keyframes enemyJumping {
+    0% {
+        top: 215px;
+    }
+    
+    25% {
+        top: 215px;
+    }
+
+    40% {
+        top: 208px;
+    }
+
+    50% {
+        top: 215px;
+    }
+
+    60% {
+        top: 208px;
+    }
+
+    75% {
+        top: 215px;
+    }
+
+    100% {
+        top: 215px;
     }
 }
 
@@ -68,4 +101,121 @@
     100% {
         top: 245px;
     }
+}
+
+
+/* theme */
+html.light{
+    --color-bg: #fff;
+    --color-ground: #000;
+}
+html.dark{
+    --color-bg: rgb(60, 60, 60);
+    --color-ground: rgb(255, 255, 200);
+}
+
+body{
+    background: var(--color-bg);
+}
+
+.themes{
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 17px;
+}
+.switch input {
+    display: none;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(13px);
+    -ms-transform: translateX(13px);
+    transform: translateX(13px);
+}
+
+
+/* game-over */
+.game-over {
+    font-family: 'VT323', monospace;
+    font-size: 8em;
+    text-align: center;
+    animation: example 1s infinite;
+    color: rgb(10, 150, 10);
+}
+
+@keyframes example {
+    25% {
+        transform: translate(-2px, 1px)
+    }
+
+    40% {
+        transform: translate(0, 0)
+    }
+
+    50% {
+        transform: translate(0px, 5px)
+    }
+
+    70% {
+        transform: translate(0, 0)
+    }
+
+    80% {
+        transform: translate(-2px, 1px)
+    }
+}
+
+.restart-block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.restart-btn{
+    font-family: 'VT323', monospace;
+    font-size: 60px;
+    font-weight: bold;
+    width: 500px;
+    height: 150px;
+    border-radius: 50px;
+    background: rgb(10, 100, 10);
+    color: #fff;
+    border: none;
 }
