@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,6 +11,31 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <!-- <div class="themes">
+      <label>
+        <input
+          type="radio"
+          name="theme"
+          value="light"
+          checked
+        />
+        light
+      </label>
+      <label>
+        <input type="radio" name="theme" value="dark" />
+        dark
+      </label>
+    </div> -->
+    <div class="themes">
+      <label class="switch">
+        <input
+          type="checkbox"
+          name="theme"
+          class="theme-input"
+        />
+        <span class="slider round"></span>
+      </label>
+    </div>
     <div class="game">
       <div id="player">
         <div id="player-in"></div>
